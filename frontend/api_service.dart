@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<List<String>> fetchRecommendations(String title) async {
-  final url = Uri.parse("https://darkmovieapp.onrender.com/recommend"); // Use proper IP based on your setup
+  final url = Uri.parse("https://darkmoviesapp.onrender.com/recommend"); // Use proper IP based on your setup
 
   final response = await http.post(
     url,
@@ -16,4 +16,5 @@ Future<List<String>> fetchRecommendations(String title) async {
   } else {
     throw Exception('Failed to fetch recommendations');
   }
+
 }
