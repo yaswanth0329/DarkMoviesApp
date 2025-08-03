@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 Future<List<dynamic>> getRecommendations(String title) async {
   final response = await http.post(
-    Uri.parse("https://darkmovieapp.onrender.com/recommend"),
+    Uri.parse("https://darkmoviesapp.onrender.com/recommend"),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({"title": title}),
   );
@@ -13,4 +13,5 @@ Future<List<dynamic>> getRecommendations(String title) async {
   } else {
     throw Exception("Failed to load recommendations");
   }
+
 }
