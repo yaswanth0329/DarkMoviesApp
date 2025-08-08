@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import recommender  # This will import from recommender.py
+import recommender  # your recommender.py file
 
 app = Flask(__name__)
 CORS(app)
@@ -11,12 +11,13 @@ def home():
 
 @app.route('/recommend', methods=['POST'])
 def recommend():
-    data = request.json
-    title = data.get("title")
+    print("✅ POST request received at /recommend")
+    data = request.get_json()
     
-    if not title:
+    if not data or "title" not in data:
         return jsonify({"error": "Title is required"}), 400
-    
+
+    title = data["title"]
     results = recommender.get_similar_movies(title)
     return jsonify(results)
 
