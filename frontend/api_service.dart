@@ -16,5 +16,4 @@ Future<List<String>> fetchRecommendations(String title) async {
   } else {
     throw Exception('Failed to fetch recommendations');
   }
-
 }
